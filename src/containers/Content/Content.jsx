@@ -4,6 +4,7 @@ import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "servic
 import { ArtistInfo, CardContainer, SearchBar, TabButtons, ContentNotFounded } from "./components";
 import { ArtistContext } from "contexts/ArtistContext";
 import { Loading } from "components";
+import { handleServiceResponseSpotify } from "commons/utils/handleServiceResponseSpotify";
 
 const ContentStyled = styled.div`
     display: flex;
@@ -26,7 +27,7 @@ const Content = (props) => {
         setArtistAlbums
     } = useContext(ArtistContext);
 
-    const handleRenderCardContainer = () => {
+    const returnContentContainer = () => {
 
         if (tabActive === "tracks")
             return artistTracks.tracks
@@ -42,29 +43,34 @@ const Content = (props) => {
             const searchArtistResponse = await getSearchArtist(artistName);
             const tracksArtistResponse = await getTopTracksFromArtist(searchArtistResponse.data.id)
             const albumsArtistResponse = await getArtistAlbums(searchArtistResponse.data.id);
-            console.log(albumsArtistResponse);
             handleSearch(searchArtistResponse, tracksArtistResponse, albumsArtistResponse);
         }
-        catch {
+        catch (Error) {
             setQueryFinded({ query: artistName, finded: false });
+            console.log(Error);
         }
         finally {
             setLoading(false);
         }
     }
 
-    const handleSearch = (searchResult, tracksResult, albumsResult) => {
-        if (searchResult.status === 200 && tracksResult.status === 200) {
-            setArtistInfo(searchResult.data);
-            setArtistTracks(tracksResult.data);
-            setArtistAlbums(albumsResult.data);
-            setQueryFinded({ query: searchResult.data, finded: true });
-        }
-        else {
-            setQueryFinded({ query: searchResult.data, finded: false });
-            console.log(queryFinded);
+    const callbackIfResponseSuccess = (newState, setState) => {
+        return () => {
+            setState(newState);
+            setQueryFinded({ query: newState, finded: true });
         }
     }
+
+    const callbackIfResponseError = (searchResponse) => {
+        return setQueryFinded({ query: searchResponse.data, finded: false })
+    }
+
+    const handleSearch = (searchResponse, tracksResponse, albumsResponse) => {
+        handleServiceResponseSpotify(searchResponse, callbackIfResponseSuccess(searchResponse.data, setArtistInfo), callbackIfResponseError(searchResponse));
+        handleServiceResponseSpotify(tracksResponse, callbackIfResponseSuccess(tracksResponse.data, setArtistTracks), callbackIfResponseError(searchResponse));
+        handleServiceResponseSpotify(albumsResponse, callbackIfResponseSuccess(albumsResponse.data, setArtistAlbums), callbackIfResponseError(searchResponse));
+    }
+
     const handleRenderResult = () => {
         if (loading) {
             return <Loading />
@@ -79,7 +85,7 @@ const Content = (props) => {
             <>
                 <ArtistInfo />
                 <TabButtons tabActive={tabActive} setTabActive={setTabActive.bind(this)} />
-                <CardContainer cards={handleRenderCardContainer()} type={tabActive} />
+                <CardContainer cards={returnContentContainer()} type={tabActive} />
             </>
         )
     }
