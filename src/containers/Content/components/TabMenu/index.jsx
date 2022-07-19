@@ -1,10 +1,5 @@
-import styled from "styled-components";
 import { Button } from "components";
-
-const TabButtonsStyled = styled.div`
-    display: flex;
-    gap: 24px;
-`
+import { TabButtonsStyled } from "./styled";
 
 const TabButtons = ({tabActive, setTabActive}) => {
 

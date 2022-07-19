@@ -1,19 +1,11 @@
-import styled from "styled-components";
 import { Card } from "components";
-
-const CardContainerStyled = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 48px 0;
-    gap: 48px;
-    width: 100%;
-`
+import { CardContainerStyled } from "./styled";
 
 const CardContainer = ({ cards, type }) => {
 
     let previousCard = cards[0];
 
-    const cardsRender = (card,index) => {
+    const cardsRender = (card, index) => {
         if (type === "tracks") {
             previousCard = cards[index];
             return (

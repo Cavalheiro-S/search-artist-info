@@ -1,5 +1,6 @@
 import axiosConfig from "../api";
 import getSearchQuery from "./query";
+
 const getSearchArtist = async (artistName) => {
     try{
         const axiosConfigured = await axiosConfig();

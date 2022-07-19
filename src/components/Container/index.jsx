@@ -1,8 +1,4 @@
-import styled from "styled-components";
-
-const ContainerStyled = styled.div`
-    padding: 2rem 4rem;
-`
+import { ContainerStyled } from "./styled";
 
 const Container = ({children}) => {
 

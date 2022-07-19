@@ -1,58 +1,15 @@
-import styled from "styled-components";
 import star from "assets/imgs/ant-design_star-filled.png";
 import spotifyIcon from "assets/imgs/cib_spotify.png";
 import spotifyDefaultImage from "assets/imgs/spotify_img.png"
-import { styles } from "assets/style/global";
 import { useContext } from "react";
 import { ArtistContext } from "contexts/ArtistContext";
+import { ArtistInfoStyled, ImgArtist, ArtistDescription, ArtistName, ArtistLinkSpotify, ArtistNumbers } from "./styled";
 
-const ImgArtist = styled.img`
-    width: 180px;
-    height: 180px;
-`
-const ArtistInfoStyled = styled.div`
-    display: flex;
-    gap: 24px;
-`
-const ArtistDescription = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-    height: 180px;
-`
-const ArtistName = styled.h2`
-    color: white;
-    margin: 0;
-`
-const ArtistNumbers = styled.div`
-    display: flex;
-    gap: 24px;
-`
-const ArtistLinkSpotify = styled.a`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-    color: black;
-    padding: 12px;
-    border-radius: 48px;
-    width: 160px;
-    font-weight: bold;
-    background-color: ${styles.color.primary};
-    transition: ease .1s all;
-    &:hover{
-        transform: scale(105%);
-    }
-`
 
 const ArtistInfo = () => {
-
     const { artistInfo } = useContext(ArtistContext);
 
     const showPopularityStar = (popularityTotal) => {
-
         if (popularityTotal === 0) {
             return 0
         }

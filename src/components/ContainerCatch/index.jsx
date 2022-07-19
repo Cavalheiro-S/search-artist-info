@@ -1,16 +1,7 @@
 import { Component } from "react";
-import styled from "styled-components";
-
-const CatchWarning = styled.div`
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    color: white;
-`
+import { CatchWarning } from "./styled";
 
 class ContainerCatch extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -33,7 +24,7 @@ class ContainerCatch extends Component {
                 <CatchWarning>
                     <h4>Something are wrong , reload that page</h4>
                 </CatchWarning>
-            ) 
+            )
 
         return this.props.children
     }

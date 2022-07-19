@@ -1,18 +1,6 @@
-import styled from "styled-components";
-
-
-const ContentNotFoundedStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-`
+import { ContentNotFoundedStyled } from "./styled";
 
 const ContentNotFounded = ({ queryNotFounded }) => {
-
     return (
         <ContentNotFoundedStyled>
             <h3>No Results finded for "{queryNotFounded}"</h3>
