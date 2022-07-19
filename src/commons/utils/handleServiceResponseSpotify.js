@@ -1,7 +1,6 @@
 export const handleServiceResponseSpotify = (response, callbackIfSuccess, callbackIfError) => {
 
     if(response.status === 200){
-        console.log(response);
         callbackIfSuccess();
     }
 
