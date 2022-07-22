@@ -1,8 +1,9 @@
 import { InputStyled } from "./styled";
 
-const Input = ({placeholder, propRef}) => {
+const Input = ({placeholder, propRef, onKeyDown}) => {
+
     return(
-        <InputStyled ref={propRef} placeholder={placeholder}/>
+        <InputStyled onKeyDown={(event) => onKeyDown(event)} ref={propRef} placeholder={placeholder}/>
     )
 }
 
