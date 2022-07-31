@@ -1,7 +1,7 @@
-import Content from './containers/Content/Content';
+import Content from './containers/Content';
 import { GlobalStyle } from "./assets/style/global";
 import { ArtistProvider, ResultProvider } from 'contexts';
-import { ContainerCatch } from 'components';
+import { ContainerCatch } from "./containers";
 
 function App() {
   return (
