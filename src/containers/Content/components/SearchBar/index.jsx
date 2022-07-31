@@ -1,10 +1,10 @@
-import { useContext, useRef, useState } from "react";
-import { Input, Button } from "components";
-import { SearchBarStyled, SearchTitle, EmptyMessage, InputContainer } from "./styled";
-import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
-import { ArtistContext } from "contexts/ArtistContext";
-import { ResultContext } from "contexts";
 import { handleServiceResponseSpotify } from "commons/utils/handleServiceResponseSpotify";
+import { Button, Input } from "components";
+import { ResultContext } from "contexts";
+import { ArtistContext } from "contexts/ArtistContext";
+import { useContext, useRef, useState } from "react";
+import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
+import { EmptyMessage, InputContainer, SearchBarStyled, SearchTitle } from "./styled";
 
 const SearchBar = () => {
     const inputRef = useRef();

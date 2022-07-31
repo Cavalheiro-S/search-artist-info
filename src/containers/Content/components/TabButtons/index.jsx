@@ -1,7 +1,7 @@
 import { Button } from "components";
 import { TabButtonsStyled } from "./styled";
 
-const TabButtons = ({tabActive, setTabActive}) => {
+const TabButtons = ({ tabActive, setTabActive }) => {
 
     const handleClick = (tabName) => {
         setTabActive(tabName);

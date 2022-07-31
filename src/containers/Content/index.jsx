@@ -1,8 +1,8 @@
+import { Loading } from "components";
+import { ArtistContext, ResultContext } from "contexts";
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import { ArtistInfo, CardContainer, SearchBar, TabButtons, ContentNotFounded } from "./components";
-import { ArtistContext, ResultContext } from "contexts";
-import { Loading } from "components";
+import { ArtistInfo, CardContainer, ContentNotFounded, SearchBar, TabButtons } from "./components";
 
 const ContentStyled = styled.div`
     display: flex;
