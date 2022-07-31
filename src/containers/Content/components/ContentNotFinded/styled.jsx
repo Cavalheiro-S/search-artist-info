@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContentNotFoundedStyled = styled.div`
+export const ContentNotFindedStyled = styled.div`
     display: flex;
     flex-direction: column;
     color: white;
