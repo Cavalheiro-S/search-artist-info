@@ -8,7 +8,7 @@ export const CardStyled = styled.div`
     padding: 24px;
     width: 180px;
     border-radius: 8px;
-    background-color: ${styles.color.secondary};
+    background-color: ${styles.color.lightGray};
     color: white;
 `
 export const Title = styled.span`

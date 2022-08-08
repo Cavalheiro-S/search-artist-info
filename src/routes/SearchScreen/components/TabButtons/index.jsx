@@ -11,16 +11,16 @@ const TabButtons = ({ tabActive, setTabActive }) => {
         if (tabActive === "tracks") {
             return (
                 <TabButtonsStyled>
-                    <Button onClick={() => handleClick("tracks")}>Top Tracks</Button>
-                    <Button onClick={() => handleClick("albums")} color="secondary">Albums</Button>
+                    <Button onClick={() => handleClick("tracks")} textColor="dark">Top Tracks</Button>
+                    <Button onClick={() => handleClick("albums")} backgroundColor="lightGray" textColor="light">Albums</Button>
                 </TabButtonsStyled>
             )
         }
         if (tabActive === "albums") {
             return (
                 <TabButtonsStyled>
-                    <Button onClick={() => handleClick("tracks")} color="secondary">Top Tracks</Button>
-                    <Button onClick={() => handleClick("albums")}>Albums</Button>
+                    <Button onClick={() => handleClick("tracks")} backgroundColor="lightGray" textColor="light">Top Tracks</Button>
+                    <Button onClick={() => handleClick("albums")} textColor="dark">Albums</Button>
                 </TabButtonsStyled>
             )
         }
