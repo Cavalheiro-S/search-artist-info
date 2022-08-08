@@ -5,12 +5,14 @@ import styled from "styled-components"
 
 export const TitleHome = styled.h1`
     font-weight: bold;
+    margin: 0;
     color: ${styledPropsColor};
     font-size: 40px;
 `
 
 export const SubTitleHome = styled.h2`
     font-size: 24px;
+    margin: 0;
     color: ${styledPropsColor};
 `
 
@@ -31,5 +33,6 @@ export const TextHighlight = styled.span`
 
 export const LinkRouter = styled(Link)`
     text-decoration: none;
+    font-size: 16px;
     color: ${styledPropsColor};
 `
