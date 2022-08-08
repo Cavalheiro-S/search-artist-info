@@ -1,14 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 const primary = "#1ED760";
-const secondary = "#4B4B4B";
+const lightGray = "#4B4B4B";
 const dark = "#333";
+const light = "#fff"
 
 const styles = {
     color: {
         primary,
-        secondary,
-        dark
+        lightGray,
+        dark,
+        light
     }
 }
 

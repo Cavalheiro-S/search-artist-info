@@ -69,7 +69,7 @@ const SearchBar = () => {
                     {inputEmpty && <EmptyMessage>This field could'nt are empty</EmptyMessage>}
                     <Input onKeyDown={handleKeyDown} propRef={inputRef} placeholder="Type a artist name" />
                 </InputContainer>
-                <Button onClick={handleClick} color="primary">
+                <Button onClick={handleClick} backgroundColor="primary" textColor="light">
                     Search
                 </Button>
             </SearchBarStyled>
