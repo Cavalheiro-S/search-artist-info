@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import { ArtistInfo, CardContainer, ContentNotFounded, SearchBar, TabButtons } from "./components";
 
-const ContentStyled = styled.div`
+const SearchScreenStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -12,7 +12,7 @@ const ContentStyled = styled.div`
     height: 100%;
 `
 
-const Content = (props) => {
+const SearchScreen = (props) => {
 
     const [tabActive, setTabActive] = useState("tracks");
     const { artistTracks, artistAlbums, } = useContext(ArtistContext);
@@ -47,11 +47,11 @@ const Content = (props) => {
     }
 
     return (
-        <ContentStyled>
+        <SearchScreenStyled>
             <SearchBar />
             {handleRenderResult()}
-        </ContentStyled>
+        </SearchScreenStyled>
     )
 }
 
-export default Content;
+export default SearchScreen;

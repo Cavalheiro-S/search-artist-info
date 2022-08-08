@@ -1,3 +1,3 @@
 import ContainerCatch from "./ContainerCatch";
-import Content from "./Content";
+import Content from "./SearchScreen";
 export { ContainerCatch, Content };

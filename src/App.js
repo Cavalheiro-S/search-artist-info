@@ -1,7 +1,8 @@
 import { ArtistProvider, ResultProvider } from 'contexts';
+import Router from 'routes/router';
 import { GlobalStyle } from "./assets/style/global";
-import { ContainerCatch } from "./containers";
-import Content from './containers/Content';
+import { ContainerCatch } from "./routes";
+import Content from './routes/SearchScreen';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <ArtistProvider>
         <ResultProvider>
           <ContainerCatch>
-            <Content />
+            <Router/>
           </ContainerCatch>
         </ResultProvider>
       </ArtistProvider>
