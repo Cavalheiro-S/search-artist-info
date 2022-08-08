@@ -1,16 +1,18 @@
-import Content from './containers/Content/Content';
+import { ArtistProvider, ResultProvider } from 'contexts';
 import { GlobalStyle } from "./assets/style/global";
-import { ArtistProvider } from 'contexts/ArtistContext';
-import { ContainerCatch } from 'components';
+import { ContainerCatch } from "./containers";
+import Content from './containers/Content';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <ArtistProvider>
-        <ContainerCatch>
-          <Content />
-        </ContainerCatch>
+        <ResultProvider>
+          <ContainerCatch>
+            <Content />
+          </ContainerCatch>
+        </ResultProvider>
       </ArtistProvider>
     </>
   );

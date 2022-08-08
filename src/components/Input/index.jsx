@@ -1,8 +1,8 @@
 import { InputStyled } from "./styled";
 
-const Input = ({placeholder, propRef}) => {
+const Input = (props) => {
     return(
-        <InputStyled ref={propRef} placeholder={placeholder}/>
+        <InputStyled {...props} ref={props.propRef}/>
     )
 }
 
