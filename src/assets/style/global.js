@@ -14,7 +14,7 @@ const styles = {
 
 const GlobalStyle = createGlobalStyle`
     *{
-        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
         box-sizing: border-box;
     }
     html, #root{

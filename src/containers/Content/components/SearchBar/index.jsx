@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Input, Button } from "components";
 import { SearchBarStyled, SearchTitle } from "./styled";
 
-const SearchBar = ({onClick}) => {
+const SearchBar = ({ onClick }) => {
 
     const inputRef = useRef();
 
