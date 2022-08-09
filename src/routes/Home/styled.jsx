@@ -22,7 +22,6 @@ export const ContainerHome = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 10rem;
     height: 100%;
     gap: 32px;
 `

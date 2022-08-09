@@ -1,7 +1,7 @@
 import { ArtistProvider, ResultProvider } from 'contexts';
 import Router from 'routes/routes';
 import { GlobalStyle } from "./assets/style/global";
-import { ContainerCatch } from "./routes";
+import ContainerCatch from "routes/ContainerCatch";
 
 function App() {
   return (

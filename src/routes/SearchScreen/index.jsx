@@ -8,7 +8,7 @@ const SearchScreenStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 48px 4rem;
+    padding: 5rem 0;
     height: 100%;
 `
 

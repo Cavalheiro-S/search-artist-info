@@ -5,6 +5,7 @@ export const styledPropsBackgroundColor = (props) => {
     if(props.backgroundColor === "light") return styles.color.light;
     if(props.backgroundColor === "dark") return styles.color.dark;
     if(props.backgroundColor === "lightGray") return styles.color.lightGray;
+    if(props.backgroundColor === "hardDark") return styles.color.hardDark;
     return "#fff"
 }
 
@@ -13,5 +14,6 @@ export const styledPropsColor = (props) => {
     if(props.textColor === "light") return styles.color.light;
     if(props.textColor === "dark") return styles.color.dark;
     if(props.textColor === "lightGray") return styles.color.lightGray;
+    if(props.textColor === "hardDark") return styles.color.hardDark;
     return "#fff";
 }
