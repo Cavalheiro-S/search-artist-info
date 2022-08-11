@@ -4,7 +4,7 @@ import { ResultContext } from "contexts";
 import { ArtistContext } from "contexts/ArtistContext";
 import { useContext, useRef, useState } from "react";
 import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
-import { EmptyMessage, InputContainer, SearchBarStyled, SearchTitle } from "./styled";
+import { EmptyMessage, InputContainer, SearchBarContainer, SearchBarStyled, SearchTitle } from "./styled";
 
 const SearchBar = () => {
     const inputRef = useRef();
@@ -62,7 +62,7 @@ const SearchBar = () => {
 
 
     return (
-        <>
+        <SearchBarContainer>
             <SearchTitle>Search a artist:</SearchTitle>
             <SearchBarStyled>
                 <InputContainer>
@@ -73,7 +73,7 @@ const SearchBar = () => {
                     Search
                 </Button>
             </SearchBarStyled>
-        </>
+        </SearchBarContainer>
     )
 }
 

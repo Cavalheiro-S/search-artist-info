@@ -3,6 +3,7 @@ import { ArtistContext, ResultContext } from "contexts";
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import { ArtistInfo, CardContainer, ContentNotFounded, SearchBar, TabButtons } from "./components";
+import IlustrationPlaySong from "./components/IlustrationPlaySong";
 
 const SearchScreenStyled = styled.div`
     display: flex;
@@ -32,7 +33,8 @@ const SearchScreen = (props) => {
             return <Loading />
         }
         if (!queryFinded.query && !queryFinded.finded) {
-            return null
+            return <IlustrationPlaySong/>
+
         }
         if (queryFinded.query && !queryFinded.finded) {
             return <ContentNotFounded />

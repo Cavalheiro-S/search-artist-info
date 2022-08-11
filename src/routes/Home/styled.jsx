@@ -20,7 +20,7 @@ export const ContainerHome = styled.div`
     display: flex;
     background-color: ${styledPropsBackgroundColor};
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
     height: 100%;
     gap: 32px;
