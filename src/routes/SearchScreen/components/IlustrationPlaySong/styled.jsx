@@ -2,13 +2,13 @@ import { styles } from "assets/style/global";
 import { styledPropsColor } from "assets/style/propsFunctions";
 import styled from "styled-components";
 
-export const IlustrationTitle = styled.h3`
+export const TitleIlustrationPlaySong = styled.h3`
     font-size: 24px;
     margin: 0;
     color: ${styledPropsColor};
 `
 
-export const IlustrationSubTitle = styled.h4`
+export const SubTitleIlustrationPlaySong = styled.h4`
     font-size: 16px;
     font-weight: normal;
     margin: 0;

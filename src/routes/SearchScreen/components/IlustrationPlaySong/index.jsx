@@ -1,16 +1,16 @@
 import Ilustration from "assets/imgs/ilustration_Play_song.svg";
-import { ContainerIlustration, IlustrationSubTitle, IlustrationTitle, TitleHighlight } from "./styled";
+import { ContainerIlustration, SubTitleIlustrationPlaySong, TitleIlustrationPlaySong, TitleHighlight } from "./styled";
 
 const IlustrationPlaySong = () => {
     return (
         <ContainerIlustration>
             <img src={Ilustration} alt="Ilustration of a man play guitar" />
-            <IlustrationTitle textColor="light">
+            <TitleIlustrationPlaySong textColor="light">
                 No artist searched <TitleHighlight>yet</TitleHighlight> ...
-            </IlustrationTitle>
-            <IlustrationSubTitle>
+            </TitleIlustrationPlaySong>
+            <SubTitleIlustrationPlaySong>
             Search a name of a artist to discover your songs and albums 
-            </IlustrationSubTitle>
+            </SubTitleIlustrationPlaySong>
         </ContainerIlustration>
 
     )

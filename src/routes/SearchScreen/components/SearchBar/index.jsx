@@ -63,7 +63,7 @@ const SearchBar = () => {
 
     return (
         <SearchBarContainer>
-            <SearchTitle>Search a artist:</SearchTitle>
+            <SearchTitle>Search a name of artist or band</SearchTitle>
             <SearchBarStyled>
                 <InputContainer>
                     {inputEmpty && <EmptyMessage>This field could'nt are empty</EmptyMessage>}
