@@ -1,19 +1,18 @@
-import { ArtistProvider, ResultProvider } from 'contexts';
-import Router from 'routes/routes';
-import { GlobalStyle } from "./assets/style/global";
+import { Provider } from 'react-redux';
 import ContainerCatch from "routes/ContainerCatch";
+import Router from 'routes/routes';
+import store from 'store/store';
+import { GlobalStyle } from "./assets/style/global";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <ArtistProvider>
-        <ResultProvider>
-          <ContainerCatch>
-            <Router/>
-          </ContainerCatch>
-        </ResultProvider>
-      </ArtistProvider>
+      <Provider store={store}>
+        <ContainerCatch>
+          <Router />
+        </ContainerCatch>
+      </Provider>
     </>
   );
 }

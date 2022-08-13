@@ -1,16 +1,16 @@
 import { handleServiceResponseSpotify } from "commons/utils/handleServiceResponseSpotify";
 import { Button, Input } from "components";
-import { ResultContext } from "contexts";
-import { ArtistContext } from "contexts/ArtistContext";
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { connect, useDispatch } from "react-redux";
 import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
+import { updateLoading, updateResult } from "store/actions";
+import { updateArtistAlbums, updateArtistInfo, updateArtistTracks } from "store/actions/artistAction";
 import { EmptyMessage, InputContainer, SearchBarContainer, SearchBarStyled, SearchTitle } from "./styled";
 
 const SearchBar = () => {
     const inputRef = useRef();
     const [inputEmpty, setInputEmpty] = useState(null);
-    const { setArtistTracks, setArtistInfo, setArtistAlbums } = useContext(ArtistContext);
-    const { setLoading, setQueryFinded } = useContext(ResultContext);
+    const dispatch = useDispatch();
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
@@ -25,7 +25,7 @@ const SearchBar = () => {
         }
         else {
             setInputEmpty(false);
-            setLoading(true);
+            dispatch(updateLoading(true));
 
             try {
                 const searchArtistResponse = await getSearchArtist(inputValue);
@@ -34,30 +34,30 @@ const SearchBar = () => {
                 handleSearch(searchArtistResponse, tracksArtistResponse, albumsArtistResponse);
             }
             catch (Error) {
-                setQueryFinded({ query: inputValue, finded: false });
+                dispatch(updateResult({ query: inputValue, finded: false }))
                 console.log(Error);
             }
             finally {
-                setLoading(false);
+                dispatch(updateLoading(false));
             }
         }
     }
 
     const callbackIfResponseSuccess = (newState, setState) => {
         return () => {
-            setState(newState);
-            setQueryFinded({ query: newState, finded: true });
+            dispatch(setState(newState));
+            dispatch(updateResult({ query: newState, finded: true }));
         }
     }
 
     const callbackIfResponseError = (searchResponse) => {
-        return setQueryFinded({ query: searchResponse.data, finded: false })
+        dispatch(updateResult({ query: searchResponse.data, finded: false }));
     }
 
     const handleSearch = (searchResponse, tracksResponse, albumsResponse) => {
-        handleServiceResponseSpotify(searchResponse, callbackIfResponseSuccess(searchResponse.data, setArtistInfo), callbackIfResponseError(searchResponse));
-        handleServiceResponseSpotify(tracksResponse, callbackIfResponseSuccess(tracksResponse.data, setArtistTracks), callbackIfResponseError(searchResponse));
-        handleServiceResponseSpotify(albumsResponse, callbackIfResponseSuccess(albumsResponse.data, setArtistAlbums), callbackIfResponseError(searchResponse));
+        handleServiceResponseSpotify(searchResponse, callbackIfResponseSuccess(searchResponse.data, updateArtistInfo), callbackIfResponseError(searchResponse));
+        handleServiceResponseSpotify(tracksResponse, callbackIfResponseSuccess(tracksResponse.data, updateArtistTracks), callbackIfResponseError(searchResponse));
+        handleServiceResponseSpotify(albumsResponse, callbackIfResponseSuccess(albumsResponse.data, updateArtistAlbums), callbackIfResponseError(searchResponse));
     }
 
 
@@ -77,4 +77,12 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+const mapStateToProps = store => ({
+    queryFinded: {
+        query: store.resultState.query,
+        finded: store.resultState.finded
+    },
+    loading: store.resultState.loading
+})
+
+export default connect(mapStateToProps)(SearchBar);

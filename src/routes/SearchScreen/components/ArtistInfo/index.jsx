@@ -1,13 +1,11 @@
 import star from "assets/imgs/ant-design_star-filled.png";
 import spotifyIcon from "assets/imgs/cib_spotify.png";
 import spotifyDefaultImage from "assets/imgs/spotify_img.png"
-import { useContext } from "react";
-import { ArtistContext } from "contexts/ArtistContext";
 import { ArtistInfoStyled, ImgArtist, ArtistDescription, ArtistName, ArtistLinkSpotify, ArtistNumbers } from "./styled";
+import { connect } from "react-redux";
 
 
-const ArtistInfo = () => {
-    const { artistInfo } = useContext(ArtistContext);
+const ArtistInfo = ({ artistInfo }) => {
 
     const showPopularityStar = (popularityTotal) => {
         if (popularityTotal === 0) {
@@ -51,4 +49,8 @@ const ArtistInfo = () => {
     )
 }
 
-export default ArtistInfo;
+const mapStateToProps = store => ({
+    artistInfo: store.artistState.artistInfo
+})
+
+export default connect(mapStateToProps)(ArtistInfo);

@@ -1,6 +1,5 @@
 import { styledPropsBackgroundColor, styledPropsColor } from "assets/style/propsFunctions";
-
-const { default: styled } = require("styled-components");
+import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
     display: flex;
@@ -16,4 +15,8 @@ export const HeaderStyled = styled.header`
 export const ContainerIcons = styled.div`
     display: flex;
     gap: 24px;
+`
+
+export const IconStyled = styled.img`
+    cursor: pointer
 `

@@ -1,6 +1,6 @@
 import { Loading } from "components";
-import { ArtistContext, ResultContext } from "contexts";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { ArtistInfo, CardContainer, SearchBar, TabButtons } from "./components";
 import IlustrationNotFinded from "./components/IlustrationNotFinded";
@@ -14,12 +14,10 @@ const SearchScreenStyled = styled.div`
     height: 100%;
 `
 
-const SearchScreen = (props) => {
+const SearchScreen = ({ loading, queryFinded,artistAlbums, artistTracks }) => {
 
     const [tabActive, setTabActive] = useState("tracks");
-    const { artistTracks, artistAlbums, } = useContext(ArtistContext);
-    const { loading, queryFinded} = useContext(ResultContext);
-
+    
     const returnContentContainer = () => {
 
         if (tabActive === "tracks")
@@ -34,11 +32,11 @@ const SearchScreen = (props) => {
             return <Loading />
         }
         if (!queryFinded.query && !queryFinded.finded) {
-            return <IlustrationPlaySong/>
+            return <IlustrationPlaySong />
 
         }
         if (queryFinded.query && !queryFinded.finded) {
-            return <IlustrationNotFinded queryNotFinded={queryFinded.query}/>
+            return <IlustrationNotFinded queryNotFinded={queryFinded.query} />
         }
         return (
             <>
@@ -57,4 +55,14 @@ const SearchScreen = (props) => {
     )
 }
 
-export default SearchScreen;
+const mapStateToProps = store => ({
+    artistAlbums: store.artistState.artistAlbums,
+    artistTracks: store.artistState.artistTracks,
+    queryFinded: {
+        query: store.resultState.queryFinded.query,
+        finded: store.resultState.queryFinded.finded
+    },
+    loading: store.resultState.loading
+})
+
+export default connect(mapStateToProps)(SearchScreen);
