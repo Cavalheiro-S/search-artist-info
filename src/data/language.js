@@ -20,7 +20,7 @@ const languageText = {
                 highlight: "favorita"
             },
             subTitle: {
-                text: "Basta digitar o nome do seu artista ou banda e clicar em pesquisar , que nós trazemos as informações sobre as melhores músicas e seus últimos albums",
+                text: "Basta digitar o nome do seu artista ou banda e clicar em pesquisar , que nós trazemos as informações sobre as melhores músicas e seus últimos álbuns",
                 highlight: "melhores"
             },
             buttonAction: "Descobrir Informações"
@@ -39,7 +39,7 @@ const languageText = {
             illustrationPlaySong: {
                 title: "Nenhum artista pesquisado ainda ...",
                 titleHighlight: "ainda",
-                subTitle: "Pesquise o nome de um artista/banda para exibir informações sobre suas músicas e albums",
+                subTitle: "Pesquise o nome de um artista/banda para exibir informações sobre suas músicas e álbuns",
                 alt: "Ilustração de um homem tocando violão enquanto saem notas de seu instrumento, ao lado de flores brancas"
             },
             illustrationNotFinded: {
@@ -60,12 +60,12 @@ const languageText = {
             },
             cardContainer: {
                 alt: {
-                    album: "Foto do album do artista"
+                    album: "Foto do álbum do artista"
                 }
             },
             tabButtons: {
                 topTracks: "Top Músicas",
-                albums: "Albums"
+                albums: "Álbuns"
             }
         }
     },
