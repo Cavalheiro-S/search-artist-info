@@ -1,6 +1,6 @@
 # Projeto Informações Músicais
 
-O projeto consiste em uma interface para receber dados do usuário e apartir desses dados fazer uma pesquisa na API do spotify para trazer informações dos artista
+O projeto consiste em uma interface para receber dados do usuário e apartir desses dados fazer uma pesquisa na API do spotify para trazer informações dos artista, além de contar com duas diferentes linguagens para exibição ( Inglês e Português) e dois temas (Claro e Escuro).
 
 ## Tela Principal
 ![Imagem Tela Principal](https://github.com/Cavalheiro-S/Assets/blob/main/Informacoes-Musicais/tela-principal.png)
@@ -31,3 +31,9 @@ npm i
 ```bash
 npm start
 ```
+### ✔ Principais Tecnologias Utilizadas
+- React
+- React Router
+- Redux
+- Axios
+- Styled-Components
