@@ -1,6 +1,6 @@
 import { getThemeColor } from "assets/style/propsFunctions";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const HeaderStyled = styled.header`
     display: flex;
     align-items: center;
@@ -24,4 +24,9 @@ export const IconStyled = styled.img`
     :hover{
         transform: scale(110%);
     }
+`
+
+export const LinkStyled = styled(Link)`
+    color: ${() => getThemeColor("text")};
+    text-decoration: none;
 `

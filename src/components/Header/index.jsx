@@ -6,7 +6,7 @@ import { getActualLanguage } from "data/language";
 import { connect, useDispatch } from "react-redux/es/exports";
 import { clickUpdateTheme } from "store/actions";
 import toggleLanguage from "store/actions/languageAction";
-import { ContainerIcons, HeaderStyled, IconStyled } from "./styled";
+import { ContainerIcons, HeaderStyled, IconStyled, LinkStyled } from "./styled";
 
 const Header = ({ theme }) => {
 
@@ -28,7 +28,7 @@ const Header = ({ theme }) => {
     }
     return (
         <HeaderStyled>
-            {actualLanguage.header.madeBy}
+            <LinkStyled to="/">{actualLanguage.header.madeBy}</LinkStyled>
             <ContainerIcons>
                 <IconStyled src={changeLanguageIcon()} onClick={() => dispatch(toggleLanguage())} alt={actualLanguage.header.alt.language} />
                 <IconStyled src={changeThemeIcon()} onClick={() => dispatch(clickUpdateTheme())} alt={actualLanguage.header.alt.theme} />
