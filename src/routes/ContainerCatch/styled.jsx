@@ -1,3 +1,4 @@
+import { getThemeColor } from "assets/style/propsFunctions";
 import styled from "styled-components";
 
 export const CatchWarning = styled.div`
@@ -5,5 +6,5 @@ export const CatchWarning = styled.div`
     height: 100%;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: ${getThemeColor("text")};
 `

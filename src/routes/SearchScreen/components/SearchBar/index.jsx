@@ -1,5 +1,6 @@
 import { handleServiceResponseSpotify } from "commons/utils/handleServiceResponseSpotify";
 import { Button, Input } from "components";
+import { getActualLanguage } from "data/language";
 import { useRef, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
@@ -11,6 +12,7 @@ const SearchBar = () => {
     const inputRef = useRef();
     const [inputEmpty, setInputEmpty] = useState(null);
     const dispatch = useDispatch();
+    let actualLanguage = getActualLanguage();
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
@@ -63,14 +65,14 @@ const SearchBar = () => {
 
     return (
         <SearchBarContainer>
-            <SearchTitle>Search a name of artist or band</SearchTitle>
+            <SearchTitle>{actualLanguage.searchScreen.searchBar.label}</SearchTitle>
             <SearchBarStyled>
                 <InputContainer>
-                    {inputEmpty && <EmptyMessage>This field could'nt are empty</EmptyMessage>}
-                    <Input onKeyDown={handleKeyDown} propRef={inputRef} placeholder="Type a artist name" />
+                    {inputEmpty && <EmptyMessage>{actualLanguage.searchScreen.searchBar.inputEmptyMessage}</EmptyMessage>}
+                    <Input onKeyDown={handleKeyDown} propRef={inputRef} placeholder={actualLanguage.searchScreen.searchBar.inputPlaceholder}/>
                 </InputContainer>
-                <Button onClick={handleClick} backgroundColor="primary" textColor="dark">
-                    Search
+                <Button btnType="buttonActived" onClick={handleClick} backgroundColor="primary" textColor="dark">
+                    {actualLanguage.searchScreen.searchBar.buttonToSearch}
                 </Button>
             </SearchBarStyled>
         </SearchBarContainer>

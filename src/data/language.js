@@ -1,5 +1,19 @@
-const language = {
+import store from "store/store";
+
+export const getActualLanguage = () => {
+    const language = store.getState().languageState.language;
+    return language === "pt" ? languageText.pt : languageText.en
+}
+
+const languageText = {
     pt: {
+        header: {
+            madeBy: "Feito por Lucas Cavalheiro ✌",
+            alt: {
+                language: "icone com duas letras de duas línguas diferentes",
+                theme: "Ícone de um circulo cortado no meio com duas cores opostas"
+            }
+        },
         home: {
             title: {
                 text: "Descubra informações sobre seu artista ou banda favorita",
@@ -12,23 +26,42 @@ const language = {
             buttonAction: "Descobrir Informações"
         },
         searchScreen: {
-            label: "Pesquise o nome de um artista ou banda",
-            inputPlaceholder: "Digite o nome do artista ou banda",
-            buttonToSearch: "Pesquisar",
-            ilustrationPlaySong: {
+            searchBar: {
+                label: "Pesquise o nome de um artista ou banda",
+                inputPlaceholder: "Digite o nome do artista ou banda",
+                buttonToSearch: "Pesquisar",
+                inputEmptyMessage: "Este campo não pode estar vazio"
+            },
+            loading: {
+                text: "Carregando ...",
+                alt: "Imagem de um meio círculo girando"
+            },
+            illustrationPlaySong: {
                 title: "Nenhum artista pesquisado ainda ...",
                 titleHighlight: "ainda",
-                subTitle: "Pesquise o nome de um artista/banda para exibir informações sobre suas músicas e albums"
+                subTitle: "Pesquise o nome de um artista/banda para exibir informações sobre suas músicas e albums",
+                alt: "Ilustração de um homem tocando violão enquanto saem notas de seu instrumento, ao lado de flores brancas"
             },
-            ilustrationNotFinded: {
+            illustrationNotFinded: {
                 title: "Nenhum Resultado encontrado para",
-                subTitle: "Verifique se você digitou corretamente"
+                subTitle: "Verifique se você digitou corretamente",
+                alt: "Ilustração de um homem e uma mulher procurando algo em uma caixa"
             },
             artistInfo: {
                 genre: "Gênero principal",
                 sites: "Sites",
                 followers: "Seguidores",
-                popularity: "Popularidade"
+                popularity: "Popularidade",
+                alt: {
+                    spotify: "Icone do spotify",
+                    star: "Icone com formato de estrela",
+                    artistImage: "Foto do artista pesquisado"
+                }
+            },
+            cardContainer: {
+                alt: {
+                    album: "Foto do album do artista"
+                }
             },
             tabButtons: {
                 topTracks: "Top Músicas",
@@ -37,6 +70,13 @@ const language = {
         }
     },
     en: {
+        header: {
+            madeBy: "Made by Lucas Cavalheiro ✌",
+            alt: {
+                language: "Icon with two letters of two different languages",
+                theme: "Icon of a circle split on the middle with two opposite colors"
+            }
+        },
         home: {
             title: {
                 text: "Discover informations about your favorite artist or band",
@@ -49,23 +89,42 @@ const language = {
             buttonAction: "Discover Informations"
         },
         searchScreen: {
-            label: "Search a name of artist or band",
-            inputPlaceholder: "Type a artist or band name",
-            buttonToSearch: "Search",
-            ilustrationPlaySong: {
+            searchBar: {
+                label: "Search a name of artist or band",
+                inputPlaceholder: "Type a artist or band name",
+                buttonToSearch: "Search",
+                inputEmptyMessage: "This field could'nt is empty"
+            },
+            loading: {
+                text: "Loading ...",
+                alt: "icon of a semicircle spinning"
+            },
+            illustrationPlaySong: {
                 title: "No artist searched yet ...",
                 titleHighlight: "yet",
-                subTitle: "Search a name of a artist to discover your songs and albums "
+                subTitle: "Search a name of a artist to discover your songs and albums",
+                alt: "Icon of a man playing the guitar while notes come out of his instrument, next to white flowers"
             },
-            ilustrationNotFinded: {
+            illustrationNotFinded: {
                 title: "No results finded to",
-                subTitle: "Verify if you type correctly"
+                subTitle: "Verify if you type correctly",
+                alt: "Illustration with a man and a woman searching for something in a box"
             },
             artistInfo: {
                 genre: "Main genre",
                 sites: "Sites",
                 followers: "Followers",
-                popularity: "Popularity"
+                popularity: "Popularity",
+                alt: {
+                    spotify: "Icon of spotify",
+                    star: "Icon with star form",
+                    artistImage: "Picture of searched artist"
+                }
+            },
+            cardContainer: {
+                alt: {
+                    album: "Foto do album do artista"
+                }
             },
             tabButtons: {
                 topTracks: "Top Tracks",
@@ -73,13 +132,4 @@ const language = {
             }
         }
     },
-}
-
-export const getCurrentLanguage = () => {
-    if(currentLanguage === "pt"){
-        return language.pt;
-    }
-    else if(currentLanguage === "en"){
-        return language.en;
-    }
 }

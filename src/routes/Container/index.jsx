@@ -1,16 +1,19 @@
-import { ContainerStyled } from "./styled";
-import { Outlet } from "react-router-dom";
 import Header from "components/Header";
-const Container = ({ children }) => {
+import { connect } from "react-redux";
+import { Outlet } from "react-router-dom";
+
+const Container = () => {
 
     return (
         <>
             <Header />
-            <ContainerStyled>
-                <Outlet />
-            </ContainerStyled>
+            <Outlet />
         </>
     )
 }
 
-export default Container;
+const mapStateToProps = store => ({
+    theme: store.themeState.theme
+})
+
+export default connect(mapStateToProps)(Container);

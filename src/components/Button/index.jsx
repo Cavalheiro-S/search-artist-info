@@ -2,7 +2,7 @@ import {ButtonStyled} from "./styled";
 
 const Button = (props) => {
     return (
-        <ButtonStyled {...props}>
+        <ButtonStyled btnType={props.btnType} {...props}>
             {props.children}
         </ButtonStyled>
     )

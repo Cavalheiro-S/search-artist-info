@@ -1,3 +1,4 @@
+import { connect } from "react-redux";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Container from "./Container";
 import Home from "./Home";
@@ -7,7 +8,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Container/>}>
+                <Route path="/" element={<Container />}>
                     <Route path="/" element={<Home />} />
                     <Route path="search" element={<SearchScreen />} />
                 </Route>
@@ -16,4 +17,8 @@ const Router = () => {
     )
 }
 
-export default Router;
+const mapStateToProps = store => ({
+    theme: store.themeState.theme
+})
+
+export default connect(mapStateToProps)(Router);

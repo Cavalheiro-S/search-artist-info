@@ -1,3 +1,4 @@
+import { getThemeColor } from "assets/style/propsFunctions";
 import styled, { keyframes } from "styled-components";
 
 const rotateLoadingAnimation = keyframes`
@@ -16,7 +17,7 @@ export const LoadingStyled = styled.div`
     align-items: center;
     height: 100%;
     gap: 24px;
-    color: white;
+    color: ${() => getThemeColor("text")};
 `
 
 export const ImgLoadingStyled = styled.img`

@@ -1,28 +1,19 @@
 import { Loading } from "components";
 import { useState } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import { ArtistInfo, CardContainer, SearchBar, TabButtons } from "./components";
-import IlustrationNotFinded from "./components/IlustrationNotFinded";
-import IlustrationPlaySong from "./components/IlustrationPlaySong";
+import IllustrationNotFinded from "./components/IllustrationNotFinded";
+import IllustrationPlaySong from "./components/IllustrationPlaySong";
+import { SearchScreenStyled } from "./components/styled";
 
-const SearchScreenStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 5rem 0;
-    height: 100%;
-`
 
-const SearchScreen = ({ loading, queryFinded,artistAlbums, artistTracks }) => {
+const SearchScreen = ({ loading, queryFinded, artistAlbums, artistTracks }) => {
 
     const [tabActive, setTabActive] = useState("tracks");
-    
-    const returnContentContainer = () => {
 
+    const returnContentContainer = () => {
         if (tabActive === "tracks")
             return artistTracks.tracks
-
         if (tabActive === "albums")
             return artistAlbums.items
     }
@@ -32,11 +23,11 @@ const SearchScreen = ({ loading, queryFinded,artistAlbums, artistTracks }) => {
             return <Loading />
         }
         if (!queryFinded.query && !queryFinded.finded) {
-            return <IlustrationPlaySong />
+            return <IllustrationPlaySong />
 
         }
         if (queryFinded.query && !queryFinded.finded) {
-            return <IlustrationNotFinded queryNotFinded={queryFinded.query} />
+            return <IllustrationNotFinded queryNotFinded={queryFinded.query} />
         }
         return (
             <>
@@ -62,7 +53,8 @@ const mapStateToProps = store => ({
         query: store.resultState.queryFinded.query,
         finded: store.resultState.queryFinded.finded
     },
-    loading: store.resultState.loading
+    loading: store.resultState.loading,
+    theme: store.themeState.theme
 })
 
 export default connect(mapStateToProps)(SearchScreen);

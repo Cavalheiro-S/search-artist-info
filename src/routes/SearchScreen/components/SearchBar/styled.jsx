@@ -1,3 +1,4 @@
+import { getThemeColor } from "assets/style/propsFunctions"
 import styled from "styled-components"
 
 export const SearchBarContainer = styled.div`
@@ -14,15 +15,19 @@ export const SearchBarStyled = styled.div`
     width: 100%;
 `
 export const SearchTitle = styled.h2`
-    margin: 0 12px;
-    font-size: 18px;
-    font-weight: normal;
-    color: white;
+    margin: 12px;
+    font-size: 1.2rem;
+    color: ${() => getThemeColor("text")};
 `
 
 export const EmptyMessage = styled.span`
-    padding: 8px 24px;
-    color: white;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: ${() => getThemeColor("inputEmpty")};
+    background-color: white;
+    align-self: start;
     font-size: 0.8rem;
 `
 

@@ -9,5 +9,6 @@ export const InputStyled = styled.input`
     color: ${styles.color.secondary};
     background-color: #f4f4f4;
     outline: none;
+    font-size: .8rem;
     padding: 0 24px;
 `

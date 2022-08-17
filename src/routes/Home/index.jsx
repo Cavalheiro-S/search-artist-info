@@ -1,17 +1,33 @@
-import { Button } from "components";
+import { getActualLanguage } from "data/language";
+import { connect } from "react-redux";
+import reactStringReplace from "react-string-replace";
 import { ContainerHome, LinkRouter, SubTitleHome, TextHighlight, TitleHome } from "./styled";
 
 const Home = () => {
+    let actualLanguage = getActualLanguage();
 
+    const formatTitle = () => {
+        let {text,highlight} = actualLanguage.home.title;
+        return reactStringReplace(text, highlight, (match, index) => (<TextHighlight key={match+index}>{match}</TextHighlight>))
+    }
+    
+    const formatSubTitle = () => {
+        let {text,highlight} = actualLanguage.home.subTitle;
+        return reactStringReplace(text, highlight, (match, index) => (<TextHighlight key={match+index}>{match}</TextHighlight>))
+    }
     return (
-        <ContainerHome backgroundColor="dark">
-            <TitleHome>Discover informations about your<br/><TextHighlight> favorite </TextHighlight>artist or band</TitleHome>
-            <SubTitleHome>Only type a name of your artist or band and click in search, that we <br/> bright informations about the<TextHighlight> top </TextHighlight>musics and your last albums</SubTitleHome>
-            <Button textColor="dark" backgroundColor="primary">
-                <LinkRouter to="/search" textColor="dark">Discover Informations</LinkRouter>
-            </Button>
+        <ContainerHome>
+            <TitleHome>{formatTitle()}</TitleHome>
+            <SubTitleHome>{formatSubTitle()}</SubTitleHome>
+            <LinkRouter to="/search">{actualLanguage.home.buttonAction}</LinkRouter>
         </ContainerHome>
     )
 }
 
-export default Home;
+const mapStateToProps = store => ({
+    language: store.languageState.language,
+    theme: store.themeState.theme
+})
+
+
+export default connect(mapStateToProps)(Home);

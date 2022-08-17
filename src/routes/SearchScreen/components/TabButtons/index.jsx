@@ -1,8 +1,11 @@
 import { Button } from "components";
+import { getActualLanguage } from "data/language";
+import { connect } from "react-redux";
 import { TabButtonsStyled } from "./styled";
 
 const TabButtons = ({ tabActive, setTabActive }) => {
 
+    const actualLanguage = getActualLanguage();
     const handleClick = (tabName) => {
         setTabActive(tabName);
     }
@@ -11,16 +14,16 @@ const TabButtons = ({ tabActive, setTabActive }) => {
         if (tabActive === "tracks") {
             return (
                 <TabButtonsStyled>
-                    <Button onClick={() => handleClick("tracks")} textColor="dark">Top Tracks</Button>
-                    <Button onClick={() => handleClick("albums")} backgroundColor="lightGray" textColor="light">Albums</Button>
+                    <Button btnType="buttonActived" onClick={() => handleClick("tracks")}>{actualLanguage.searchScreen.tabButtons.topTracks}</Button>
+                    <Button btnType="buttonDisabled" onClick={() => handleClick("albums")}>{actualLanguage.searchScreen.tabButtons.albums}</Button>
                 </TabButtonsStyled>
             )
         }
         if (tabActive === "albums") {
             return (
                 <TabButtonsStyled>
-                    <Button onClick={() => handleClick("tracks")} backgroundColor="lightGray" textColor="light">Top Tracks</Button>
-                    <Button onClick={() => handleClick("albums")} textColor="dark">Albums</Button>
+                    <Button btnType="buttonDisabled" onClick={() => handleClick("tracks")}>{actualLanguage.searchScreen.tabButtons.topTracks}</Button>
+                    <Button btnType="buttonActived" onClick={() => handleClick("albums")}>{actualLanguage.searchScreen.tabButtons.albums}</Button>
                 </TabButtonsStyled>
             )
         }
@@ -29,4 +32,8 @@ const TabButtons = ({ tabActive, setTabActive }) => {
     return handleTabChange();
 }
 
-export default TabButtons;
+const mapStateToProps = store => ({
+    language: store.languageState.language
+})
+
+export default connect(mapStateToProps)(TabButtons);

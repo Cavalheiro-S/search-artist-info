@@ -5,5 +5,4 @@ export const CardContainerStyled = styled.div`
     flex-wrap: wrap;
     padding: 48px 0;
     gap: 48px;
-    width: 100%;
 `
