@@ -83,7 +83,7 @@ const languageText = {
                 highlight: "favorite"
             },
             subTitle: {
-                text: "Only type a name of your artist or band and click in search, that we bright informations about the top musics and your last albums",
+                text: "Only type a name of your artist or band and click in search, that we will bring informations about the top musics and your last albums",
                 highlight: "top"
             },
             buttonAction: "Discover Informations"
