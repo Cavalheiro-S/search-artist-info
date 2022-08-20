@@ -3,12 +3,16 @@ import { getThemeColor } from "assets/style/propsFunctions";
 import { styles } from "assets/style/global";
 
 export const ImgArtist = styled.img`
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
 `
 export const ArtistInfoStyled = styled.div`
     display: flex;
     gap: 24px;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 export const ArtistDescription = styled.div`
     display: flex;
@@ -16,6 +20,10 @@ export const ArtistDescription = styled.div`
     justify-content: space-between;
     color: ${() => getThemeColor("text")};
     height: 180px;
+    
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    }
 `
 
 export const ArtistInfoSpan = styled.span`
@@ -25,6 +33,10 @@ export const ArtistName = styled.h2`
     color: ${() => getThemeColor("text")};
     font-size: 1.1rem;
     margin: 0;
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
 `
 export const ArtistNumbers = styled.div`
     display: flex;

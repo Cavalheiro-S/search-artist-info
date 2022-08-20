@@ -6,6 +6,9 @@ export const TitleIllustrationPlaySong = styled.h3`
     font-size: 24px;
     margin: 0;
     color: ${() => getThemeColor("text")};
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
 `
 
 export const SubTitleIllustrationPlaySong = styled.h4`
@@ -13,6 +16,10 @@ export const SubTitleIllustrationPlaySong = styled.h4`
     font-weight: normal;
     margin: 0;
     color: ${() => getThemeColor("text")};
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
 `
 
 export const TitleHighlight = styled.span`

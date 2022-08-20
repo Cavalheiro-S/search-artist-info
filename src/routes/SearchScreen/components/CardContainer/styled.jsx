@@ -5,4 +5,8 @@ export const CardContainerStyled = styled.div`
     flex-wrap: wrap;
     padding: 48px 0;
     gap: 48px;
+
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+    }
 `

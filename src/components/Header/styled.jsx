@@ -11,11 +11,20 @@ export const HeaderStyled = styled.header`
     background-color: ${() => getThemeColor("header")};
     border-bottom: 1px solid ${() => getThemeColor("headerBorder")};
     color: ${() => getThemeColor("text")};
+
+    @media screen and (max-width: 768px) {
+        padding: 0 2rem;
+        font-size: .9rem;
+    }
+    @media screen and (max-width: 425px) {
+        padding: 0 1rem;
+    }
 `
 
 export const ContainerIcons = styled.div`
     display: flex;
     gap: 24px;
+
 `
 
 export const IconStyled = styled.img`
@@ -29,4 +38,7 @@ export const IconStyled = styled.img`
 export const LinkStyled = styled(Link)`
     color: ${() => getThemeColor("text")};
     text-decoration: none;
+    @media screen and (max-width: 425px) {
+        width: 60%;
+    }
 `

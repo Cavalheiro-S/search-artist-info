@@ -12,6 +12,12 @@ export const TitleIllustrationNotFinded = styled.h3`
     color: ${() => getThemeColor("text")};
     font-size: 1.6rem;
     margin: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+    }
 `
 
 export const SubTitleIllustrationNotFinded = styled.h4`

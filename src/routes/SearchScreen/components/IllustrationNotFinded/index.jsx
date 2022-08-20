@@ -30,7 +30,7 @@ const IllustrationNotFinded = ({ queryNotFinded, theme }) => {
 
 const mapStateToProps = store => ({
     language: store.languageState.language,
-    theme: store.languageState.theme
+    theme: store.themeState.theme
 })
 
 export default connect(mapStateToProps)(IllustrationNotFinded);

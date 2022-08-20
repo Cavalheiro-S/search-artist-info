@@ -11,6 +11,14 @@ export const ContainerHome = styled.div`
     justify-content: center;
     padding: 4rem;
     gap: 32px;
+
+    @media screen and (max-width: 768px) {
+            padding: 2rem;
+            align-items: center;
+    }
+    @media screen and (max-width: 425px) {
+        padding: 1rem;
+    }
 `
 
 export const TitleHome = styled.h1`
@@ -19,6 +27,11 @@ export const TitleHome = styled.h1`
     margin: 0;
     color: ${() => getThemeColor("text")};
     font-size: 40px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 32px;
+    }
+    
 `
 
 export const SubTitleHome = styled.h2`
@@ -26,6 +39,11 @@ export const SubTitleHome = styled.h2`
     max-width: 900px;
     margin: 0;
     color: ${() => getThemeColor("text")};
+
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
+    
 `
 
 export const TextHighlight = styled.span`

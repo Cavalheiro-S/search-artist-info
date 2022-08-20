@@ -1,12 +1,11 @@
 import { handleServiceResponseSpotify } from "commons/utils/handleServiceResponseSpotify";
-import { Button, Input } from "components";
 import { getActualLanguage } from "data/language";
 import { useRef, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { getArtistAlbums, getSearchArtist, getTopTracksFromArtist } from "services/spotify/get";
 import { updateLoading, updateResult } from "store/actions";
 import { updateArtistAlbums, updateArtistInfo, updateArtistTracks } from "store/actions/artistAction";
-import { EmptyMessage, InputContainer, SearchBarContainer, SearchBarStyled, SearchTitle } from "./styled";
+import { ButtonStyled, EmptyMessage, InputContainer, InputStyled, SearchBarContainer, SearchBarStyled, SearchTitle } from "./styled";
 
 const SearchBar = () => {
     const inputRef = useRef();
@@ -69,11 +68,11 @@ const SearchBar = () => {
             <SearchBarStyled>
                 <InputContainer>
                     {inputEmpty && <EmptyMessage>{actualLanguage.searchScreen.searchBar.inputEmptyMessage}</EmptyMessage>}
-                    <Input onKeyDown={handleKeyDown} propRef={inputRef} placeholder={actualLanguage.searchScreen.searchBar.inputPlaceholder}/>
+                    <InputStyled onKeyDown={handleKeyDown} propRef={inputRef} placeholder={actualLanguage.searchScreen.searchBar.inputPlaceholder}/>
                 </InputContainer>
-                <Button btnType="buttonActived" onClick={handleClick} backgroundColor="primary" textColor="dark">
+                <ButtonStyled btnType="buttonActived" onClick={handleClick} backgroundColor="primary" textColor="dark">
                     {actualLanguage.searchScreen.searchBar.buttonToSearch}
-                </Button>
+                </ButtonStyled>
             </SearchBarStyled>
         </SearchBarContainer>
     )
